@@ -1,0 +1,385 @@
+<title>Marca Dayanna</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700&display=swap">
+<style>
+/* Layout: una carta larga sobre papel crema; cada sección es una "hoja" de la guía, con muestras reales a la vista. */
+/* Diseño de un solo tema (papel de carta), elegido a propósito: los colores van fijos en ambos modos. */
+:root {
+  color-scheme: light;
+  --frambuesa: #B8336A;
+  --rosa: #E87FA3;
+  --rosa-palo: #F6C6D5;
+  --rubor: #FDF1F5;
+  --crema: #FBF6EF;
+  --tinta: #4A2233;
+  --tinta-suave: #7A5263;
+  --dorado: #C9A15B;
+  --linea: #EBD3DC;
+  --f-script: "Great Vibes", "Brush Script MT", cursive;
+  --f-display: "Cormorant Garamond", "Iowan Old Style", Georgia, serif;
+  --f-texto: "Nunito Sans", "Segoe UI", system-ui, sans-serif;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--crema) url("img/papel-carta-crema.png");
+  background-size: 512px;
+  color: var(--tinta);
+  font-family: var(--f-texto);
+  font-size: 16px;
+  line-height: 1.6;
+}
+.envoltura {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+a { color: var(--frambuesa); }
+:focus-visible { outline: 2px solid var(--frambuesa); outline-offset: 3px; }
+
+/* ---------- Portada ---------- */
+.portada {
+  background: var(--rubor) url("img/fondo-acuarela-rosa.jpg") center / cover;
+  position: relative;
+}
+.portada .envoltura { padding-block: 56px 72px; display: grid; justify-items: center; text-align: center; gap: 18px; }
+.portada img.logo { width: min(440px, 86%); }
+.portada p { max-width: 54ch; margin: 0; font-family: var(--f-display); font-size: 1.35rem; font-style: italic; color: var(--tinta); }
+.encaje {
+  height: 46px;
+  background: url("img/borde-encaje.png") repeat-x left top / auto 46px;
+  margin-top: -1px;
+}
+.etiqueta {
+  font-family: var(--f-texto);
+  font-size: .74rem;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--frambuesa);
+}
+
+/* ---------- Secciones ---------- */
+section { padding-block: 56px 8px; }
+h2 {
+  font-family: var(--f-display);
+  font-weight: 600;
+  font-size: clamp(1.9rem, 4vw, 2.6rem);
+  line-height: 1.1;
+  margin: 6px 0 10px;
+  text-wrap: balance;
+}
+h2 .script { font-family: var(--f-script); font-weight: 400; color: var(--frambuesa); font-size: 1.25em; }
+.intro { max-width: 64ch; color: var(--tinta-suave); margin: 0 0 28px; }
+h3 { font-family: var(--f-display); font-size: 1.35rem; font-weight: 600; margin: 0; }
+
+/* Logos */
+.logos { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 18px; }
+.lamina {
+  background: #fff;
+  border: 1px solid var(--linea);
+  border-radius: 6px;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  min-width: 0;
+}
+.lamina .vista { display: grid; place-items: center; padding: 28px; min-height: 230px; }
+.lamina .vista img { max-height: 190px; width: auto; }
+.lamina .pie { border-top: 1px dashed var(--linea); padding: 12px 16px; font-size: .9rem; color: var(--tinta-suave); }
+.lamina .pie b { color: var(--tinta); display: block; font-weight: 700; }
+.v-frambuesa { background: var(--frambuesa); border-radius: 5px 5px 0 0; }
+.v-rubor { background: var(--rubor); border-radius: 5px 5px 0 0; }
+.reglas { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 14px 28px; margin-top: 24px; padding: 0; list-style: none; }
+.reglas li { padding-left: 22px; position: relative; font-size: .95rem; }
+.reglas li::before { content: "♥"; position: absolute; left: 0; color: var(--rosa); font-size: .8rem; top: 3px; }
+
+/* Colores */
+.colores { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr)); gap: 14px; }
+.color { border-radius: 6px; overflow: hidden; border: 1px solid var(--linea); background: #fff; }
+.color .muestra { height: 110px; display: flex; align-items: flex-end; padding: 10px 12px; font-family: var(--f-script); font-size: 1.9rem; }
+.color .datos { padding: 10px 12px 12px; font-size: .85rem; }
+.color .datos b { display: block; font-size: .95rem; }
+.color code { font-family: ui-monospace, "SFMono-Regular", Menlo, monospace; font-size: .82rem; color: var(--tinta-suave); }
+.copiar { border: 0; background: none; padding: 0; cursor: pointer; color: inherit; font: inherit; text-align: left; }
+.copiar:hover code { color: var(--frambuesa); }
+
+/* Tipografía */
+.tipos { display: grid; gap: 14px; }
+.tipo {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2.4fr); gap: 20px; align-items: center;
+  background: #fff; border: 1px solid var(--linea); border-radius: 6px; padding: 22px 24px;
+}
+.tipo .uso { font-size: .88rem; color: var(--tinta-suave); }
+.tipo .uso b { display: block; color: var(--tinta); font-size: 1rem; }
+.m-script { font-family: var(--f-script); font-size: clamp(2.4rem, 6vw, 3.6rem); color: var(--frambuesa); line-height: 1.1; }
+.m-display { font-family: var(--f-display); font-size: clamp(1.6rem, 4vw, 2.3rem); font-weight: 600; line-height: 1.15; }
+.m-display i { font-weight: 500; color: var(--frambuesa); }
+.m-texto { font-family: var(--f-texto); font-size: 1.02rem; max-width: 60ch; }
+@media (max-width: 640px) { .tipo { grid-template-columns: 1fr; gap: 10px; } }
+
+/* Voz */
+.voz { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 18px; }
+.voz .col { background: var(--rubor); border-radius: 6px; padding: 20px 22px; }
+.voz .col.no { background: #fff; border: 1px dashed var(--linea); }
+.voz ul { margin: 10px 0 0; padding-left: 18px; }
+.voz li { margin-bottom: 8px; }
+.voz q { font-family: var(--f-display); font-style: italic; font-size: 1.15rem; }
+
+/* Texturas */
+.texturas { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); gap: 16px; }
+.textura { background: #fff; border: 1px solid var(--linea); border-radius: 6px; overflow: hidden; min-width: 0; }
+.textura .t { height: 170px; background-size: 256px; background-repeat: repeat; }
+.textura .t.grande { background-size: cover; background-position: center; }
+.textura .t.tira { background-size: auto 46px; background-repeat: repeat-x; background-position: left center; background-color: var(--rosa); }
+.textura .info { padding: 12px 14px 14px; font-size: .88rem; color: var(--tinta-suave); }
+.textura .info b { color: var(--tinta); display: block; font-size: .95rem; }
+.textura .info code { font-family: ui-monospace, Menlo, monospace; font-size: .76rem; word-break: break-all; color: var(--frambuesa); }
+
+/* Festividades */
+.fiestas { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 14px; }
+.fiesta { border-radius: 6px; padding: 18px; background-size: 220px; border: 1px solid var(--linea); min-height: 150px; display: flex; align-items: flex-end; }
+.fiesta div { background: rgba(255,255,255,.92); border-radius: 4px; padding: 10px 12px; width: 100%; }
+.fiesta b { font-family: var(--f-display); font-size: 1.2rem; display: block; }
+.fiesta span { font-size: .85rem; color: var(--tinta-suave); }
+
+/* Productos */
+.productos { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); gap: 18px; }
+.producto { background: #fff; border-radius: 6px; border: 1px solid var(--linea); overflow: hidden; }
+.producto .foto { height: 160px; background-size: 200px; display: grid; place-items: center; }
+.producto .foto span { font-family: var(--f-script); font-size: 2.4rem; color: var(--frambuesa); background: rgba(255,255,255,.85); padding: 2px 18px; border-radius: 40px; }
+.producto .cuerpo { padding: 14px 16px 18px; display: grid; gap: 6px; }
+.producto .precio { font-family: var(--f-display); font-weight: 600; font-size: 1.25rem; font-variant-numeric: tabular-nums; }
+.boton {
+  justify-self: start; margin-top: 6px;
+  background: var(--frambuesa); color: #fff; border: 0; border-radius: 40px;
+  padding: 10px 20px; font: 700 .85rem/1 var(--f-texto); letter-spacing: .06em; text-transform: uppercase; cursor: pointer;
+}
+.boton:hover { background: #9E2A59; }
+.nota { font-size: .82rem; color: var(--tinta-suave); margin-top: 12px; }
+
+/* Código */
+pre {
+  background: var(--tinta); color: #FBE7EE; border-radius: 6px; padding: 18px 20px;
+  overflow-x: auto; font-size: .82rem; line-height: 1.55; margin: 0;
+}
+footer { padding-block: 56px 48px; text-align: center; }
+footer img { width: 84px; }
+footer p { font-family: var(--f-display); font-style: italic; color: var(--tinta-suave); margin: 8px 0 0; }
+.aviso { position: fixed; left: 50%; bottom: calc(18px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); background: var(--tinta); color: #fff; padding: 8px 16px; border-radius: 40px; font-size: .85rem; }
+@media (prefers-reduced-motion: no-preference) {
+  .portada img.logo { animation: entra .9s ease-out both; }
+  @keyframes entra { from { opacity: .4; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+}
+</style>
+
+<header class="portada">
+  <div class="envoltura">
+    <span class="etiqueta">Guía de marca · noviembre 2026</span>
+    <img class="logo" src="img/dayanna-logo-principal.svg" alt="Logo de Dayanna: un sobre con corazón y la firma Dayanna, detalles hechos a mano">
+    <p>Cartas, cartas tejidas y detalles hechos a mano para decir lo que se siente, en cada fecha especial.</p>
+  </div>
+</header>
+<div class="encaje" aria-hidden="true"></div>
+
+<main class="envoltura">
+
+  <section id="logo">
+    <span class="etiqueta">Logo</span>
+    <h2>Un sobre cosido <span class="script">a mano</span></h2>
+    <p class="intro">El símbolo junta lo que vende Dayanna: un sobre (las cartas), una costura punteada (lo tejido y bordado) y un corazón como sello. La firma en letra cursiva hace que la marca se sienta escrita por ella misma.</p>
+    <div class="logos">
+      <div class="lamina"><div class="vista"><img src="img/dayanna-logo-principal.svg" alt="Logo principal"></div><div class="pie"><b>Principal</b>Portada de la web, empaques, tarjetas.</div></div>
+      <div class="lamina"><div class="vista"><img src="img/dayanna-logo-horizontal.svg" alt="Logo horizontal" style="max-height:120px"></div><div class="pie"><b>Horizontal</b>Barra de menú de la web y firmas de correo.</div></div>
+      <div class="lamina"><div class="vista v-rubor"><img src="img/dayanna-sello.svg" alt="Sello con la letra D" style="max-height:170px"></div><div class="pie"><b>Sello “D”</b>Foto de perfil, stickers para cerrar sobres, ícono de la web.</div></div>
+      <div class="lamina"><div class="vista v-frambuesa"><img src="img/dayanna-logo-blanco.svg" alt="Logo en blanco"></div><div class="pie"><b>Blanco</b>Sobre fotos o fondos frambuesa.</div></div>
+      <div class="lamina"><div class="vista"><img src="img/dayanna-logo-tinta.svg" alt="Logo en tinta ciruela"></div><div class="pie"><b>Una tinta</b>Sellos de goma, grabados e impresión económica.</div></div>
+      <div class="lamina"><div class="vista"><img src="img/dayanna-favicon.svg" alt="Favicon" style="width:64px"></div><div class="pie"><b>Favicon</b>La pestañita del navegador.</div></div>
+    </div>
+    <ul class="reglas">
+      <li>Deja aire alrededor del logo: como mínimo, el alto del corazón.</li>
+      <li>El logo principal no debe quedar más angosto de 160 px; si falta espacio, usa el sello.</li>
+      <li>Sobre fotos con mucho detalle, usa la versión blanca con una sombra suave.</li>
+      <li>No lo estires, no le cambies la letra ni le pongas otros colores.</li>
+    </ul>
+  </section>
+
+  <section id="colores">
+    <span class="etiqueta">Colores</span>
+    <h2>Rosado, con <span class="script">carácter</span></h2>
+    <p class="intro">El rosado es el corazón de la marca. Para que se lea bien, el rosa fuerte (frambuesa) va en botones y títulos, y los rosas suaves quedan para fondos. El ciruela reemplaza al negro en los textos. Toca un color para copiar su código.</p>
+    <div class="colores" id="paleta"></div>
+  </section>
+
+  <section id="tipografia">
+    <span class="etiqueta">Tipografía</span>
+    <h2>Tres letras, <span class="script">tres tareas</span></h2>
+    <p class="intro">Todas son gratuitas en Google Fonts, así que la web las puede cargar sin pagar licencias.</p>
+    <div class="tipos">
+      <div class="tipo"><div class="uso"><b>Great Vibes</b>Firma, palabras destacadas y nombres en las cartas. Solo en tamaños grandes, nunca en párrafos.</div><div class="m-script">Para ti, con amor</div></div>
+      <div class="tipo"><div class="uso"><b>Cormorant Garamond</b>Títulos, nombres de productos y precios.</div><div class="m-display">Carta tejida de San Valentín <i>· edición especial</i></div></div>
+      <div class="tipo"><div class="uso"><b>Nunito Sans</b>Textos, descripciones, botones y formularios. Redondita y muy legible en el celular.</div><div class="m-texto">Cada carta se teje a mano con lana suave y se entrega en un sobre sellado. Puedes elegir el color del hilo y el mensaje de adentro.</div></div>
+    </div>
+  </section>
+
+  <section id="voz">
+    <span class="etiqueta">Cómo habla la marca</span>
+    <h2>Cercana, cálida y <span class="script">sencilla</span></h2>
+    <div class="voz">
+      <div class="col">
+        <h3>Así sí</h3>
+        <ul>
+          <li>Tutear, como una amiga que ayuda a elegir el regalo.</li>
+          <li>Contar cómo se hace cada pieza: el hilo, el papel, el tiempo.</li>
+          <li><q>Cuéntame para quién es y lo hacemos juntos.</q></li>
+        </ul>
+      </div>
+      <div class="col no">
+        <h3>Así no</h3>
+        <ul>
+          <li>Frases de vendedor (“¡OFERTA IMPERDIBLE!”).</li>
+          <li>Demasiados emojis o signos de exclamación.</li>
+          <li>Prometer fechas de entrega sin confirmarlas antes.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="texturas">
+    <span class="etiqueta">Texturas para la web</span>
+    <h2>Papel, lana e <span class="script">hilo</span></h2>
+    <p class="intro">Imágenes listas para usar como fondos. Las que dicen “se repite” son mosaicos sin cortes: se ponen con <code>background-repeat: repeat</code> y llenan cualquier tamaño de pantalla.</p>
+    <div class="texturas" id="lista-texturas"></div>
+  </section>
+
+  <section id="festividades">
+    <span class="etiqueta">Festividades</span>
+    <h2>Un patrón para cada <span class="script">fecha</span></h2>
+    <p class="intro">Para la web, cambia el fondo del banner y de las tarjetas según la temporada, sin tocar el logo ni los colores base.</p>
+    <div class="fiestas">
+      <div class="fiesta" style="background-image:url('img/patron-corazones.png')"><div><b>San Valentín y aniversarios</b><span>Patrón de corazones</span></div></div>
+      <div class="fiesta" style="background-image:url('img/patron-flores-dia-madre.png')"><div><b>Día de la Madre y cumpleaños</b><span>Patrón de flores</span></div></div>
+      <div class="fiesta" style="background-image:url('img/patron-navidad-rosa.png')"><div><b>Navidad y Año Nuevo</b><span>Copos y estrellas</span></div></div>
+      <div class="fiesta" style="background-image:url('img/tejido-punto-rosa.png')"><div><b>Amor y Amistad (septiembre)</b><span>Tejido de punto</span></div></div>
+    </div>
+  </section>
+
+  <section id="ejemplo">
+    <span class="etiqueta">Ejemplo de uso</span>
+    <h2>Así se verían los <span class="script">productos</span></h2>
+    <p class="intro">Un adelanto de las tarjetas de producto con la marca aplicada. Los precios son de ejemplo.</p>
+    <div class="productos">
+      <article class="producto">
+        <div class="foto" style="background-image:url('img/papel-carta-crema.png')"><span>Carta</span></div>
+        <div class="cuerpo"><h3>Carta escrita a mano</h3><span class="m-texto" style="font-size:.92rem;color:var(--tinta-suave)">Papel texturizado, sobre sellado con lacre rosado.</span><span class="precio">$ 25.000</span><button class="boton" type="button">Pedir por WhatsApp</button></div>
+      </article>
+      <article class="producto">
+        <div class="foto" style="background-image:url('img/tejido-punto-rosa.png')"><span>Tejida</span></div>
+        <div class="cuerpo"><h3>Carta tejida</h3><span class="m-texto" style="font-size:.92rem;color:var(--tinta-suave)">Mensaje corto tejido en lana, con el color que elijas.</span><span class="precio">$ 48.000</span><button class="boton" type="button">Pedir por WhatsApp</button></div>
+      </article>
+      <article class="producto">
+        <div class="foto" style="background-image:url('img/patron-bordado-puntadas.png')"><span>Bordada</span></div>
+        <div class="cuerpo"><h3>Carta bordada</h3><span class="m-texto" style="font-size:.92rem;color:var(--tinta-suave)">Iniciales y un dibujo bordados en punto de cruz.</span><span class="precio">$ 39.000</span><button class="boton" type="button">Pedir por WhatsApp</button></div>
+      </article>
+    </div>
+    <p class="nota">Los botones son de muestra: en la web real abrirán el chat de WhatsApp de Dayanna.</p>
+  </section>
+
+  <section id="codigo">
+    <span class="etiqueta">Para la web</span>
+    <h2>Variables listas para <span class="script">copiar</span></h2>
+    <p class="intro">Este bloque va al inicio del CSS de la página. Así todos los colores y letras salen de un solo lugar.</p>
+    <pre id="css-tokens"></pre>
+    <button class="boton" type="button" id="copiar-css" style="margin-top:12px">Copiar CSS</button>
+  </section>
+
+</main>
+
+<footer class="envoltura">
+  <img src="img/dayanna-sello.svg" alt="">
+  <p>Hecho con cariño para Dayanna</p>
+</footer>
+<div class="aviso" id="aviso" hidden></div>
+
+<script>
+const colores = [
+  { n: "Frambuesa", v: "--rosa-frambuesa", hex: "#B8336A", uso: "Botones, títulos, logo", texto: "#fff" },
+  { n: "Rosa", v: "--rosa-medio", hex: "#E87FA3", uso: "Detalles, íconos, costuras", texto: "#4A2233" },
+  { n: "Rosa palo", v: "--rosa-palo", hex: "#F6C6D5", uso: "Fondos de tarjetas, bordes", texto: "#4A2233" },
+  { n: "Rubor", v: "--rubor", hex: "#FDF1F5", uso: "Fondo general suave", texto: "#B8336A" },
+  { n: "Crema papel", v: "--crema", hex: "#FBF6EF", uso: "Fondo tipo carta", texto: "#B8336A" },
+  { n: "Ciruela", v: "--tinta", hex: "#4A2233", uso: "Textos (en lugar del negro)", texto: "#FDF1F5" },
+  { n: "Dorado", v: "--dorado", hex: "#C9A15B", uso: "Acentos finos, nunca texto", texto: "#4A2233" },
+];
+const texturas = [
+  { a: "papel-carta-crema.png", n: "Papel carta crema", u: "Fondo general de la página.", r: true },
+  { a: "papel-rosa-rubor.png", n: "Papel rubor", u: "Secciones alternas, pie de página.", r: true },
+  { a: "papel-rosa-palo.png", n: "Papel rosa palo", u: "Banda de “Cómo pedir” o testimonios.", r: true },
+  { a: "tejido-punto-rosa.png", n: "Tejido de punto", u: "Categoría de cartas tejidas.", r: true },
+  { a: "lino-rosa.png", n: "Lino rosado", u: "Fondo detrás de fotos de producto.", r: true },
+  { a: "patron-bordado-puntadas.png", n: "Puntadas bordadas", u: "Categoría de cartas bordadas.", r: true },
+  { a: "patron-corazones.png", n: "Corazones", u: "San Valentín y aniversarios.", r: true },
+  { a: "patron-corazones-transparente.png", n: "Corazones (transparente)", u: "Encima de cualquier color de fondo.", r: true, fondo: "#B8336A" },
+  { a: "patron-flores-dia-madre.png", n: "Flores", u: "Día de la Madre y cumpleaños.", r: true },
+  { a: "patron-navidad-rosa.png", n: "Navidad rosada", u: "Temporada de diciembre.", r: true },
+  { a: "fondo-acuarela-rosa.jpg", n: "Acuarela", u: "Portada (hero), 1920 × 1080. No se repite.", grande: true },
+  { a: "borde-encaje.png", n: "Borde de encaje", u: "Separador bajo la portada; se repite a lo ancho.", tira: true },
+];
+
+function aviso(t) {
+  const el = document.getElementById("aviso");
+  el.textContent = t; el.hidden = false;
+  clearTimeout(aviso.t); aviso.t = setTimeout(() => (el.hidden = true), 1800);
+}
+async function copiar(texto, msg) {
+  try { await navigator.clipboard.writeText(texto); aviso(msg); }
+  catch { aviso("Selecciona el texto y cópialo con Ctrl+C"); }
+}
+
+const paleta = document.getElementById("paleta");
+colores.forEach(c => {
+  const b = document.createElement("button");
+  b.className = "color copiar"; b.type = "button";
+  b.innerHTML = `<div class="muestra" style="background:${c.hex};color:${c.texto}">Aa</div>
+    <div class="datos"><b>${c.n}</b><code>${c.hex}</code><br>${c.uso}</div>`;
+  b.addEventListener("click", () => copiar(c.hex, `Copiado ${c.hex}`));
+  paleta.appendChild(b);
+});
+
+const lista = document.getElementById("lista-texturas");
+texturas.forEach(t => {
+  const d = document.createElement("div");
+  d.className = "textura";
+  const clase = t.grande ? "t grande" : t.tira ? "t tira" : "t";
+  const fondo = t.fondo ? `background-color:${t.fondo};` : "";
+  d.innerHTML = `<div class="${clase}" style="${fondo}background-image:url('img/${t.a}')"></div>
+    <div class="info"><b>${t.n}${t.r ? " · se repite" : ""}</b>${t.u}<br><code>texturas/${t.a}</code></div>`;
+  lista.appendChild(d);
+});
+
+const css = `:root {
+  /* Colores Dayanna */
+${colores.map(c => `  ${c.v}: ${c.hex}; /* ${c.uso} */`).join("\n")}
+
+  /* Letras (Google Fonts) */
+  --letra-firma: "Great Vibes", cursive;
+  --letra-titulos: "Cormorant Garamond", Georgia, serif;
+  --letra-texto: "Nunito Sans", system-ui, sans-serif;
+
+  /* Texturas */
+  --fondo-papel: url("texturas/papel-carta-crema.png");
+  --fondo-tejido: url("texturas/tejido-punto-rosa.png");
+  --fondo-portada: url("texturas/fondo-acuarela-rosa.jpg");
+}
+
+body {
+  background: var(--crema) var(--fondo-papel) repeat;
+  background-size: 512px;
+  color: var(--tinta);
+  font-family: var(--letra-texto);
+}`;
+document.getElementById("css-tokens").textContent = css;
+document.getElementById("copiar-css").addEventListener("click", () => copiar(css, "CSS copiado"));
+document.querySelectorAll(".producto .boton").forEach(b => b.addEventListener("click", () => aviso("Botón de muestra: en la web abrirá WhatsApp")));
+</script>

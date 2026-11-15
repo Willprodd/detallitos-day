@@ -1,0 +1,4 @@
+__pycache__/
+*.pyc
+# copia interna usada solo para la vista previa en claude.ai
+web/artifact.html
